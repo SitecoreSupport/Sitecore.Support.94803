@@ -16,7 +16,7 @@
       Assert.ArgumentNotNull(args, "args");
       if (Guid.TryParse(args.TextQuery, out guid))
       {
-        Item item = args.Database.GetItem(new ID(guid), args.ContentLanguage);
+        Item item = args.Database.GetItem(new ID(guid));
         if (item != null)
         {
           SearchResult result = SearchResult.FromItem(item);
