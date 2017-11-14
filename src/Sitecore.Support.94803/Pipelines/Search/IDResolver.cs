@@ -2,7 +2,6 @@
 {
   using System;
   using Data;
-  using Data.Items;
   using Diagnostics;
   using Globalization;
   using Sitecore.Pipelines.Search;
@@ -14,9 +13,10 @@
     {
       Guid guid;
       Assert.ArgumentNotNull(args, "args");
+
       if (Guid.TryParse(args.TextQuery, out guid))
       {
-        Item item = args.Database.GetItem(new ID(guid));
+        var item = args.Database.GetItem(new ID(guid));
         if (item != null)
         {
           SearchResult result = SearchResult.FromItem(item);
